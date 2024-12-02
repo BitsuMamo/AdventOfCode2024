@@ -24,14 +24,17 @@ public class PartOne {
                 Integer firstNum = Integer.parseInt(in[i]);
                 Integer secondNum = Integer.parseInt(in[i + 1]);
 
+                // Check if the difference in greater than 3
                 if (Math.abs(firstNum - secondNum) > 3) {
                     isSafe = false;
                     break;
                 }
+
                 if( i == 0){
                     prev = firstNum - secondNum;
                     continue;
                 }
+                // Check if there is a change from strictly increasing to decreasing or vice versa
                 int cur = firstNum - secondNum;
                 if((prev >= 0 && cur <= 0) || (prev <= 0 && cur >= 0)) {
                     isSafe = false;
